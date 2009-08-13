@@ -15,3 +15,4 @@ WriteMakefile(
         Task::Weaken => 1.02,    # install only
     },
 );
+require Task::Weaken => 0;
