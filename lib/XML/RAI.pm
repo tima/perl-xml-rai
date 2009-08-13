@@ -292,6 +292,15 @@ for C<time_format>.
 
 =back
 
+=head1 PARTICIPATION
+
+I welcome and accept patches in diff format. If you wish to
+hack on this code, please fork the git repository found at:
+L<http://github.com/tima/perl-xml-rai/>
+
+If you have something to push back to my repository, just
+use the "pull request" button on the github site.
+
 =head1 LICENSE
 
 The software is released under the Artistic License. The terms of
