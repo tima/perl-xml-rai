@@ -11,6 +11,7 @@ use strict;
 
 use Date::Parse 2.26;
 use Date::Format 2.22;
+use Scalar::Util qw(weaken);
 
 sub new {
     my $class = shift;
@@ -26,6 +27,8 @@ sub init {
     while ($_[0]->{__RAI}->can('parent')) {
         $_[0]->{__RAI} = $_[0]->{__RAI}->parent;
     }
+    weaken($_[0]->{__parent});
+    weaken($_[0]->{__RAI});
 }
 
 sub src    { $_[0]->{__source} }
