@@ -1,5 +1,8 @@
 Revision history for Perl extension XML::RAI.
 
+1.303 Aug 13 2009
+	- Applied memory leak patch from Mark Glines (mark@glines.org) Thanks!
+	
 1.3022July 18 2007
     - Changed XML::RAI::Object's date handler to avoid an apparent bug in 
       Date::Format::strftime. Thanks to Tim Sweetman.
