@@ -23,31 +23,33 @@ $XMap = {
     coverage    => ['dc:coverage'],
     creator     => ['dc:creator'],
     description => [
-                    'description',      'dc:description',
-                    'dcterms:abstract', 'dcterms:alternative'
+        'description',      'dc:description',
+        'dcterms:abstract', 'dcterms:alternative'
     ],
     generator => [
-                  'admin:generatorAgent/@rdf:resource',
-                  'admin:generatorAgent',
-                  'generator'
+        'admin:generatorAgent/@rdf:resource', 'admin:generatorAgent',
+        'generator'
     ],
     identifier    => ['dc:identifier/@rdf:resource', 'dc:identifier', 'link'],
     issued_strict => ['dcterms:issued'],
-    issued        =>
+    issued =>
       ['dcterms:issued', 'dc:date', 'lastBuildDate', 'rss091:lastBuildDate'],
     language   => ['@xml:lang', 'dc:language', 'language', 'rss091:language'],
     maintainer => [
-                   'admin:errorReportsTo/@rdf:resource',
-                   'admin:errorReportsTo',
-                   'webMaster'
+        'admin:errorReportsTo/@rdf:resource', 'admin:errorReportsTo',
+        'webMaster'
     ],
     modified_strict => ['dcterms:modified'],
-    modified        =>
-      ['dcterms:modified', 'dc:date', 'lastBuildDate', 'rss091:lastBuildDate',],
+    modified        => [
+        'dcterms:modified', 'dc:date',
+        'lastBuildDate',    'rss091:lastBuildDate',
+    ],
     publisher => ['dc:publisher', 'managingEditor', 'rss091:managingEditor'],
     relation => ['dc:relation/@rdf:resource', 'dc:relation'],
-    rights   =>
-      ['dc:rights', 'copyright', 'creativeCommons:license', 'rss091:copyright'],
+    rights   => [
+        'dc:rights',               'copyright',
+        'creativeCommons:license', 'rss091:copyright'
+    ],
     source  => ['dc:source',  'source/@url', 'source', 'title'],
     subject => ['dc:subject', 'category'],
     title   => ['title',      'dc:title'],
@@ -67,9 +69,12 @@ sub link {
         @nodes = grep {
             $_->attributes->{type} =~ m!^(text/html|application/xhtml+xml)$!
         } $this->src->query('l:link[@rel="permalink"]')
-      ) {
-      } elsif (@nodes = $this->src->query('dc:relation/@rdf:resource')) {
-      } elsif (@nodes = $this->src->query('dc:relation')) {
+      )
+    {
+    }
+    elsif (@nodes = $this->src->query('dc:relation/@rdf:resource')) {
+    }
+    elsif (@nodes = $this->src->query('dc:relation')) {
     }
     return unless (defined $nodes[0]);
     my @n = map { ref($_) ? $_->text_content : $_ } @nodes;

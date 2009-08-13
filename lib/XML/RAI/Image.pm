@@ -13,14 +13,16 @@ use vars qw(@ISA $XMap);
 @ISA = qw( XML::RAI::Object );
 
 $XMap = {
-    description =>
-      ['/channel/image[0]/description', '/channel/image[0]/rss091:description'],
+    description => [
+        '/channel/image[0]/description',
+        '/channel/image[0]/rss091:description'
+    ],
     height => ['/channel/image[0]/height', '/channel/image[0]/rss091:height'],
     'link' => ['/channel/image[0]/link'],
     title  => ['/channel/image[0]/title',  '/channel/image[0]/dc:title'],
     url    => [
-            '/channel/image[0]/@rdf:resource', '/channel/image[0]/@rdf:about',
-            '/channel/image[0]/url'
+        '/channel/image[0]/@rdf:resource', '/channel/image[0]/@rdf:about',
+        '/channel/image[0]/url'
     ],
     width => ['/channel/image[0]/width', '/channel/image[0]/rss091:width']
 };

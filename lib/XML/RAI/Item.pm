@@ -20,9 +20,9 @@ $XMap = {
     abstract       => ['dcterms:abstract', 'description', 'dc:description'],
     content_strict => ['xhtml:body',       'xhtml:div',   'content:encoded'],
     content        => [
-                'xhtml:body',      'xhtml:div',
-                'content:encoded', 'description',
-                'dc:description',  'rss091:description'
+        'xhtml:body',      'xhtml:div',
+        'content:encoded', 'description',
+        'dc:description',  'rss091:description'
     ],
     contentstrict => ['xhtml:body', 'xhtml:div', 'content:encoded']
     ,    # deprecated
@@ -35,26 +35,24 @@ $XMap = {
     identifier =>
       ['dc:identifier/@rdf:resource', 'dc:identifier', 'guid', 'link'],
     issued_strict => ['dcterms:issued'],
-    issued        => ['dcterms:issued', 'dc:date', 'pubDate', 'rss091:pubDate'],
-    language      => [
-                 '@xml:lang',         'dc:language',
-                 '/@xml:lang',        '/channel/dc:language',
-                 '/channel/language', '/channel/rss091:language'
+    issued   => ['dcterms:issued', 'dc:date', 'pubDate', 'rss091:pubDate'],
+    language => [
+        '@xml:lang',         'dc:language',
+        '/@xml:lang',        '/channel/dc:language',
+        '/channel/language', '/channel/rss091:language'
     ],
     modified_strict => ['dcterms:modified'],
     modified => ['dcterms:modified', 'dc:date', 'pubDate', 'rss091:pubDate'],
     ping      => ['trackback:ping/@rdf:resource',  'trackback:ping'],
     pinged    => ['trackback:about/@rdf:resource', 'trackback:about'],
     publisher => [
-                  'dc:publisher',            '/channel/dc:publisher',
-                  '/channel/managingEditor', '/channel/rss091:managingEditor'
+        'dc:publisher',            '/channel/dc:publisher',
+        '/channel/managingEditor', '/channel/rss091:managingEditor'
     ],
     relation => ['dc:relation/@rdf:resource', 'dc:relation'],
     rights   => [
-               'dc:rights',
-               '/channel/copyright',
-               '/channel/creativeCommons:license',
-               '/channel/rss091:copyright'
+        'dc:rights',                        '/channel/copyright',
+        '/channel/creativeCommons:license', '/channel/rss091:copyright'
     ],
     source  => ['dc:source',  'source/@url', 'source'],
     subject => ['dc:subject', 'category'],
@@ -76,15 +74,19 @@ sub link {
         @nodes = grep {
             !$_->attributes
               || (!$_->attributes->{isPermaLink}
-                  || $_->attributes->{isPermaLink} eq 'true')
+                || $_->attributes->{isPermaLink} eq 'true')
         } $this->src->query('guid')
-      ) {
-      } elsif (
+      )
+    {
+    }
+    elsif (
         @nodes = grep {
             $_->attributes->{type} =~ m!^(text/html|application/xhtml+xml)$!
         } $this->src->query('l:link[@rel="permalink"]')
-      ) {
-      } elsif (@nodes = $this->src->query('comment')) {
+      )
+    {
+    }
+    elsif (@nodes = $this->src->query('comment')) {
     }
     my @n = map { ref($_) ? $_->text_content : $_ } @nodes;
     wantarray ? @n : $n[0];

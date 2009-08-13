@@ -49,9 +49,10 @@ sub generic_handler {
         my @nodes = $this->src->query($_);
         if (defined($nodes[0])) {
             @nodes = map {
-                !ref($_) ? $_
-                  : substr($_->name, 0, 30) eq '{http://www.w3.org/1999/xhtml}'
-                  ? join '', map { as_xhtml($_) } @{$_->contents}
+                   !ref($_) ? $_
+                  : substr($_->name, 0, 30) eq
+                  '{http://www.w3.org/1999/xhtml}' ? join '',
+                  map { as_xhtml($_) } @{$_->contents}
                   : $_->text_content;
             } @nodes;
             return wantarray ? @nodes : $nodes[0];
@@ -66,7 +67,8 @@ sub time_handler {
     my $timef = $_[0]->{__RAI}->time_format;
     if ($timef eq 'EPOCH') {
         map { $_ = str2time($_, 0) } @r;
-    } elsif ($timef) {
+    }
+    elsif ($timef) {
         map { $_ = time2str($timef, str2time($_, 0), 0) } @r;
     }
     wantarray ? @r : $r[0];
@@ -92,7 +94,8 @@ sub AUTOLOAD {
       unless (${$class . '::XMap'}->{$var});
     if ($var =~ m/^(created|modified|issued|valid)(_strict)?$/) {
         *$AUTOLOAD = sub { time_handler($_[0], $class, $var) };
-    } else {
+    }
+    else {
         *$AUTOLOAD = sub { generic_handler($_[0], $class, $var) };
     }
     goto &$AUTOLOAD;

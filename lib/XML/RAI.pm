@@ -39,7 +39,8 @@ sub init {
         my ($method, @r) = @_;
         $parser ||= XML::RSS::Parser->new;
         $doc = $parser->$method(@r) or die $parser->errstr;
-    } else {
+    }
+    else {
         $doc = shift;
     }
     $self->{__doc} = $doc;
@@ -48,7 +49,8 @@ sub init {
     my @items = map { XML::RAI::Item->new($_, $channel) } $doc->items;
     $self->{__items} = \@items;
     my @imgs = $doc->image;    # fix multiple image bug ala slashdot.
-    $self->{__image} = XML::RAI::Image->new($imgs[0], $channel) if $doc->image;
+    $self->{__image} = XML::RAI::Image->new($imgs[0], $channel)
+      if $doc->image;
     $self->{__timef} = W3CDTF;
 }
 
@@ -61,7 +63,8 @@ sub parse {
     my $class = shift;
     if (ref($_[0]) eq 'GLOB') {    # is filehandle
         $class->parse_file(@_);
-    } else {                       # is string
+    }
+    else {                         # is string
         $class->parse_string(@_);
     }
 }
