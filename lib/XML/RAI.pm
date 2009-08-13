@@ -1,5 +1,5 @@
-# Copyright (c) 2004-2005 Timothy Appnel
-# http://www.timaoutloud.org/
+# Copyright (c) 2004-2009 Timothy Appnel
+# http://appnel.com/
 # This code is released under the Artistic License.
 #
 # XML::RAI - RSS Abstraction Interface.
@@ -10,7 +10,7 @@ package XML::RAI;
 use strict;
 
 use vars qw($VERSION);
-$VERSION = 1.3022;
+$VERSION = 1.303;
 
 use XML::RSS::Parser 4.0;
 use XML::RAI::Channel;
@@ -298,7 +298,7 @@ L<http://www.perl.com/language/misc/Artistic.html>.
 =head1 AUTHOR & COPYRIGHT
 
 Except where otherwise noted, XML::RAI is Copyright
-2003-2005, Timothy Appnel, cpan@timaoutloud.org. All rights
+2003-2009, Timothy Appnel, tima@cpan.org. All rights
 reserved.
 
 =cut

@@ -1,5 +1,5 @@
-# Copyright (c) 2004-2005 Timothy Appnel
-# http://www.timaoutloud.org/
+# Copyright (c) 2004-2009 Timothy Appnel
+# http://appnel.com/
 # This code is released under the Artistic License.
 #
 # XML::RAI::Image - An interface to the image elements of a RSS feed.

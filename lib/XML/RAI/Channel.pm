@@ -1,5 +1,5 @@
-# Copyright (c) 2004-2005 Timothy Appnel
-# http://www.timaoutloud.org/
+# Copyright (c) 2004-2009 Timothy Appnel
+# http://appnel.com/
 # This code is released under the Artistic License.
 #
 # XML::RAI::Channel - an interface to the channel elements of a RSS feed.
