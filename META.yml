@@ -1,0 +1,15 @@
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         XML-RAI
+version:      1.3022
+version_from: lib/XML/RAI.pm
+installdirs:  site
+requires:
+    Date::Format:                  2.22
+    Date::Parse:                   2.26
+    File::Spec:                    0
+    Test::More:                    0
+    XML::RSS::Parser:              4
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.17
