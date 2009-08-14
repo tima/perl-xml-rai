@@ -5,11 +5,7 @@ BEGIN { chdir 't' if -d 't' }
 use strict;
 use warnings;
 
-use lib '../lib';
-
 use Test::More tests => 1;
-
-use Devel::Leak::Object qw(GLOBAL_bless);
 
 use XML::RAI;
 
