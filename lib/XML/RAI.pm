@@ -23,8 +23,6 @@ use constant RFC822    => '%a, %d %b %G %T %Z';
 use constant PASS_THRU => '';
 use constant EPOCH     => 'EPOCH';
 
-my $parser;
-
 sub new {
     my $class = shift;
     my $self = bless {}, $class;
@@ -37,7 +35,7 @@ sub init {
     my $doc;
     unless (ref($_[0]) eq 'XML::RSS::Parser::Feed') {
         my ($method, @r) = @_;
-        $parser ||= XML::RSS::Parser->new;
+        my $parser = XML::RSS::Parser->new;
         $doc = $parser->$method(@r) or die $parser->errstr;
     }
     else {
