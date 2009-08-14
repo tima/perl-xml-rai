@@ -10,7 +10,7 @@ package XML::RAI;
 use strict;
 
 use vars qw($VERSION);
-$VERSION = 1.303;
+$VERSION = 1.3031;
 
 use XML::RSS::Parser 4.0;
 use XML::RAI::Channel;
