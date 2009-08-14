@@ -1,7 +1,12 @@
 Revision history for Perl extension XML::RAI.
 
+1.3031 Aug 14 2009
+    - Added memory leak test
+    - Added Test::Weaken and Task::Weaken modules to support "weakening" of circular references
+    - Dropped class level caching of XML::RSS::Parser that was causing the leaks test to fail
+
 1.303 Aug 13 2009
-	- Applied memory leak patch from Mark Glines (mark@glines.org) Thanks!
+    - Applied memory leak patch from Mark Glines (mark@glines.org) Thanks!
 	
 1.3022July 18 2007
     - Changed XML::RAI::Object's date handler to avoid an apparent bug in 
