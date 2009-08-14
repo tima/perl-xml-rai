@@ -9,10 +9,11 @@ WriteMakefile(
         XML::RSS::Parser => 4.0,
         Date::Format     => 2.22,
         Date::Parse      => 2.26,
-        Scalar::Util     => 0,
+        Scalar::Util     => 1.19,
         File::Spec       => 0,
         Test::More       => 0,
-        Task::Weaken => 1.02,    # install only
+        Task::Weaken     => 1.02,    # install only
+	Test::Weaken     => 0,
     },
 );
 require Task::Weaken => 0;

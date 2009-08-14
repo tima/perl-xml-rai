@@ -20,7 +20,7 @@ This module requires these other modules and libraries:
 XML::RSS::Parser 4.0
 Date::Parse 2.26
 Date::Format 2.22
-
+Test::Weaken
 
 COPYRIGHT AND LICENCE
 
