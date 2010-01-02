@@ -9,8 +9,10 @@ WriteMakefile1(
             repository => 'http://github.com/tima/perl-xml-rai',
         },
     },
-    #BUILD_REQUIRES => {
-    #},
+    BUILD_REQUIRES => {
+        Test::More       => 0,
+        Task::Weaken     => 1.02,    # install only
+    },
 
     'NAME'         => 'XML::RAI',
     'VERSION_FROM' => 'lib/XML/RAI.pm',
@@ -20,12 +22,9 @@ WriteMakefile1(
         Date::Parse      => 2.26,
         Scalar::Util     => 1.19,
         File::Spec       => 0,
-        Test::More       => 0,
-        Task::Weaken     => 1.02,    # install only
 	Test::Weaken     => 0,
     },
 );
-require Task::Weaken => 0;
 
 sub WriteMakefile1 {  #Written by Alexandr Ciornii, version 0.21. Added by eumm-upgrade.
     my %params=@_;
