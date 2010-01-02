@@ -7,6 +7,7 @@
 
 package XML::RAI::Object;
 
+use 5.006; #weaken
 use strict;
 
 use Date::Parse 2.26;
